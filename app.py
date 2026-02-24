@@ -78,10 +78,10 @@ if st.button("🎯 Predict Mood", type="primary"):
         confidence_df = pd.DataFrame({
             'Mood': [labels[i] for i in range(4)],
             'Confidence': [f"{p*100:.1f}%" for p in proba]})
-
-
+        st.dataframe(confidence_df, hide_index=True, use_container_width=True)
 st.markdown("---")
 st.markdown("### 💡 Feature Examples")
+
 
 
 
