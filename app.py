@@ -26,10 +26,10 @@ selected_model = st.sidebar.selectbox('Select Model', model_options, index=model
 st.sidebar.markdown("---")
 st.sidebar.markdown('### Model Performance')
 st.sidebar.markdown(f'''
-**Random Forest**: 97.6% accuracy
-**LightGBM**: 96.9% accuracy
-**Decision Tree**: 96.0% accuracy
-**Logistic Regression**: 84.7% accuracy
+**Random Forest**: 97.6% accuracy  
+**LightGBM**: 96.9% accuracy  
+**Decision Tree**: 96.0% accuracy  
+**Logistic Regression**: 84.7% accuracy  
 **SVC**: 81.7% accuracy ''')
 
 st.markdown('### Enter song features')
@@ -53,7 +53,7 @@ with col2:
 if st.button("🎯 Predict Mood", type="primary"):
     inputs = np.array([[duration, danceability, energy, loudness, speechiness, acousticness, instrumentalness, liveness, valence, tempo, spec_rate]])
 
-    model = models[selected_model]
+    model = models[selected_model.index()]
     
     scaled_inputs = scaler.transform(inputs)
 
@@ -81,4 +81,5 @@ if st.button("🎯 Predict Mood", type="primary"):
 
 st.markdown("---")
 st.markdown("### 💡 Feature Examples")
+
 
