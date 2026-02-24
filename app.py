@@ -84,11 +84,13 @@ if st.button("🎯 Predict Mood", type="primary"):
 
         fig, ax = plt.subplots()
         sns.barplot(x='Mood', y='Confidence', data=confidence_df, palette='viridis', ax=ax)
+        ax.invert_xaxis()
         ax.invert_yaxis()
         st.pyplot()
 
 st.pyplot(fig)
 st.markdown("---")
+
 
 
 
