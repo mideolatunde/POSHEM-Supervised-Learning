@@ -79,8 +79,11 @@ if st.button("🎯 Predict Mood", type="primary"):
             'Mood': [labels[i] for i in range(4)],
             'Confidence': [f"{p*100:.1f}%" for p in proba]})
         st.dataframe(confidence_df, hide_index=True, use_container_width=True)
+
+    st.bar_chart(confidence_df.set_index('Mood'))
 st.markdown("---")
 st.markdown("### 💡 Feature Examples")
+
 
 
 
