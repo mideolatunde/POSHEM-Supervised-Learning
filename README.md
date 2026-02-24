@@ -99,84 +99,32 @@ Models were evaluated using:
 - ROC-AUC (for multi-class classification) 
 - Cross-validation for robustness (5-fold stratified cross-validation)
 
+5. Deployment
+
 
 ## 📈 Exploratory Data Analysis  
-
-
-
-### Accident Frequency Analysis
-- Examined accident distribution over time (day, month, year) to identify high-risk periods.
-
-### Demographic Insights 
-- Analyze the relationship between driver characteristics (age, experience, gender, educational level) and accident occurrences.
-
-### Environmental Factors
-- Investigate the impact of weather, road surface conditions, road surface types and lightning on accident severity.
-
-### Accident Severity Analysis
-- Categorize accidents by severity levels (slight, serious, fatal).
-
-### Common Causes of Accidents
-- Determine primary factors leading to road accidents (Types of Collisions, types of junction, area of occurrence, types of vehicle).
-
-### Correlation Analysis
--  Identify relationships between drivers age band and accident severity, with age band casuality and severity.
+- The distribution of the Duration, Speechiness, Acousticness, Instrumentalness, Liveness and Spec-rate features are right-skewed while Valence is slightly right-skewed.
+- The distribution of Loudness is left-skewed while Energy and Danceability are slightly left-skewed.
+- The Tempo Column is normally distributed.
+- Instrumentalness has the most correlation to the target variable (0.54)
+- Visualization of feature patterns per label shows that there's alot of outliers
 
 ## &#127942; Model Performance
+| Model Name | Accuracy Score | F1 Score | Recall Score | ROC-AUC Score | Mean CV | S.D CV |
+| --- | --- | --- | --- | --- | --- | --- |
+| Logistic Regression | 0.846730 | 0.846730 | 0.845728 | 0.969690 | 0.846984 | 0.000955 |
+| Decision Tree | 0.959938 | 0.959938 | 0.959950 | 0.973292 | 0.953053 | 0.000495 |
+| Random Forest | 0.975277 | 0.975277 | 0.975304 | 0.999091 | 0.971260 | 0.000757 |
+| Support Vector | 0.816546 | 0.816546 | 0.814112 | NaN	| 0.817422 | 0.001019 |
+| LightGBM | 0.967314 | 0.967314 | 0.967335 | 0.998466 | 0.967414 | 0.000379 |
 
 
 
 ## 🔍 Key Insights
 
-###  Accidents OverTime
-- **Total Number of accidents**: 12,316 
-- **Total Number of casualties**: 19,067 casualties
-- **Total Number of vehicles involved**: 25,133 vehicles
 
-### Peak accident periods
-- **Most Frequent Accident Time**: 17:00
-- **Most Frequent Day**: Friday
+## &#127919; Real World Application
 
-### Demographic insights
-- **Highest Gender Involvement**: Male (11437, 92.86%), 
-- **Highest Age Band Involvement**: 18-30, 4271
-- **Highest driving experience Involvement**: Junior high school, 7619
-- **Highest educational level Involvement**: 5-10yr, 3363 followed by 2-5yr, 2613
-
-### Environmental Factors causing highest severity
-- **Road surface type**: Asphalt road types 
-- **Road surface condition**: Dry road condition followed by wet or damp roads
-- **Light Condition**: Daylight condition
-- **Weather Condition**: Normal weather condition
-
-### Accident Severity Analysis
-- **Slight Injury**: 10415 (84.56%)
-- **Serious Injury**: 1743 (14.15%)
-- **Fatal Injury**: 158 (1.28%)
-
-### Common Causes of Accidents
-- No distancing: 2263
-- Changing lane to the right: 1808
-- Changing lane to the left: 1473
-
-### Other frequent causes
-- **Types of Collision**: Vehicle with vehicle collision 
-- **Types of junction**: Y-junction
-- **Area of occurrence**: Office areas
-- **Types of vehicle**: Automobile  
-
-### Correlation Analysis
-- Drivers age band has a correlation of 0.013 with Accident severity
-- Casualty age band has a correlation of 0.77 with Casualty severity 
-
-## &#128200; Visualizations
-The analysis includes:
-
-- Multiple Bar charts of the days, driver characteristics, environmental Information and other information (*check out charts*)
-- A pie chart showing the different accident severity levels.
-- Subplot of barcharts showing the number of accidents per driver's age, sex, education level and driving experience.
-- Line plot showing the timely occurrence of accidents.
-- Heat map showing the correlation between age band of driver and casualty and severity of driver and casualty.
 
 ## &#128161; Learning Outcomes
 Through this project, I demonstrated proficiency in:
@@ -191,20 +139,19 @@ Through this project, I demonstrated proficiency in:
 
 
 #### Tools Mastered
-- Python (Pandas, NumPy, Matplotlib, Seaborn, SciPy)
+- Python (Pandas, NumPy, Matplotlib, Seaborn, SciPy, ScikitLearn, Streamlit, Joblib, LightGBM)
 - Jupyter Notebook
-- Data Visualization enhances clarity and business decision-making
-- Statistical analysis methods
+- Using different models  
 
 ## &#128640; How to Run the Project
-1. **Python Installation** (3.8 or higher)
+1. **Python Installation** (3.10 or higher)
 ```windows cmd
 py -m python --version
 ```
 
 2. **Required Libraries**
 ```windows cmd
-py -m pip install pandas numpy matplotlib seaborn scipy jupyter lab openpyxl
+py -m pip install pandas numpy matplotlib seaborn scipy jupyter lab openpyxl scikit-learn lightgbm joblib streamlit
 ```
 
 #### Step-by-Step Instructions
@@ -219,27 +166,32 @@ py -m jupyter lab
 ```
 
 3. **Open the Notebook**
-- Open `RTA Project code.ipynb` In Jupyter.
+- Open `Spotify Music.ipynb` In Jupyter.
 
 4. **Run all cells at once or Run cells individually**
 
 #### Troubleshooting
 
 **Issue**: "File not found" error
-**Solution**: Ensure `RTA Dataset_with_DD.xlsx` is in the same directory as the notebook.
+**Solution**: Ensure `278k_song_labelled.csv` is in the same directory as the notebook.
 
 **Issue**: Import errors
 **Solution**: Install missing libraries using `py -m pip install [library-name]`
 
+5. **Run Streamlit App**
+``` ```
 
 ## &#128193; Repository structure
 ```
 Poshem_Sales_Project/
 ├──charts/ # Visualization charts
-├── RTA Accidents Report.docx
-├── README.md # README
-├── RTA Project code # Main project workbook
-└── RTA Dataset_with_DD.xlsx  # Dataset
+├── 278k_labelled_uri.csv
+├── 278k_song_labelled.csv  #Dataset
+├── README.md   #README  
+├── Spotify Music.ipynb  #Main Project Workbook
+├── app.py #App 
+├── models.pkl #Trained models for app
+└── scaler.pkl
 ```
 
 
