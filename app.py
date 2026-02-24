@@ -20,7 +20,7 @@ models, scaler = load_models()
 
 labels = {0: 'Sad', 1: 'Happy', 2: 'Energetic', 3: 'Calm'}
 
-model_options = list(i[0] for pair in models)
+model_options = list(pair[0] for pair in models)
 selected_model = st.sidebar.selectbox('Select Model', model_options, index=model_options.index('Random Forest'))
 
 st.sidebar.markdown("---")
@@ -81,6 +81,7 @@ if st.button("🎯 Predict Mood", type="primary"):
 
 st.markdown("---")
 st.markdown("### 💡 Feature Examples")
+
 
 
 
