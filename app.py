@@ -3,6 +3,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import seaborn as sns
+import matplotlib.pyplot as plt
 
 st.title('Spotify Music Mood Classifier')
 st.markdown('Predict song mood based on audio features using machine learning')
@@ -88,6 +89,7 @@ if st.button("🎯 Predict Mood", type="primary"):
 
 st.pyplot(fig)
 st.markdown("---")
+
 
 
 
