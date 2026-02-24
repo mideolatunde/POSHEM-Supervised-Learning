@@ -83,12 +83,13 @@ if st.button("🎯 Predict Mood", type="primary"):
         st.dataframe(confidence_df, hide_index=True, use_container_width=True)
 
         fig, ax = plt.subplots()
-        sns.barplot(x='Mood', y='Confidence', data=confidence_df, palette='viridis', ax=ax)
+        sns.barplot(y='Mood', x='Confidence', data=confidence_df, palette='viridis', ax=ax)
         ax.set_title('Confidence')
         st.pyplot()
 
 st.pyplot(fig)
 st.markdown("---")
+
 
 
 
