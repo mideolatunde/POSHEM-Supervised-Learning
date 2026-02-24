@@ -2,6 +2,7 @@ import joblib
 import streamlit as st
 import pandas as pd
 import numpy as np
+import seaborn as sns
 
 st.title('Spotify Music Mood Classifier')
 st.markdown('Predict song mood based on audio features using machine learning')
@@ -80,9 +81,15 @@ if st.button("🎯 Predict Mood", type="primary"):
             'Confidence': [f"{p*100:.1f}%" for p in proba]})
         st.dataframe(confidence_df, hide_index=True, use_container_width=True)
 
-    st.bar_chart(confidence_df.set_index('Mood'))
+        fig, ax = plt.subplots()
+        sns.barplot(x='Mood', y='Confidence', data=confidence_df, palette='viridis', ax=ax)
+        ax.set_title('Fruit Quantities')
+        st.pyplot(fig)
+
+st.pyplot(fig)
 st.markdown("---")
-st.markdown("### 💡 Feature Examples")
+
+
 
 
 
