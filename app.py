@@ -20,8 +20,9 @@ models, scaler = load_models()
 
 labels = {0: 'Sad', 1: 'Happy', 2: 'Energetic', 3: 'Calm'}
 
-model_options = [pair[0] for pair in models]
-selected_model = st.sidebar.selectbox('Select Model', model_options, index=model_options.index('Random Forest'))
+models_dict = dict(models)
+model_options = list(models_dict.keys())
+selected_model = st.sidebar.selectbox("Select Model", model_options, index=model_options.index('Random Forest'))
 
 st.sidebar.markdown("---")
 st.sidebar.markdown('### Model Performance')
@@ -53,7 +54,7 @@ with col2:
 if st.button("🎯 Predict Mood", type="primary"):
     inputs = np.array([[duration, danceability, energy, loudness, speechiness, acousticness, instrumentalness, liveness, valence, tempo, spec_rate]])
 
-    model = models[selected_model]
+    model = models_dict[selected_model]
     
     scaled_inputs = scaler.transform(inputs)
 
@@ -81,6 +82,7 @@ if st.button("🎯 Predict Mood", type="primary"):
 
 st.markdown("---")
 st.markdown("### 💡 Feature Examples")
+
 
 
 
