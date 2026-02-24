@@ -26,8 +26,8 @@ model learns patterns that distinguish songs into predefined labels (e.g., 'sad'
 
 
 ## &#128194; Dataset Description
-**Source**: 278k_song_labelled.csv
-**Records**: 277938 entries
+**Source**: 278k_song_labelled.csv  
+**Records**: 277938 entries  
 **Columns**: 13 
 
 #### **Features Used**
