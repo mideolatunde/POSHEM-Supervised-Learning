@@ -53,7 +53,7 @@ with col2:
 if st.button("🎯 Predict Mood", type="primary"):
     inputs = np.array([[duration, danceability, energy, loudness, speechiness, acousticness, instrumentalness, liveness, valence, tempo, spec_rate]])
 
-    model = models[model_options.index()]
+    model = models[selected_model]
     
     scaled_inputs = scaler.transform(inputs)
 
@@ -81,6 +81,7 @@ if st.button("🎯 Predict Mood", type="primary"):
 
 st.markdown("---")
 st.markdown("### 💡 Feature Examples")
+
 
 
 
